@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Take Care App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Poppins;
+      background: linear-gradient(to bottom, #ff8f8f, #ffe06e);
+    }
+    .menu-header {
+      background-color: linear-gradient(to bottom, #ff8f8f, #ffe06e);
+      padding: 16px;
+      font-size:40px;
+      text-align: center;
+      -webkit-text-stroke: 1px white;
+    }
+    input {
+      width: 90%;
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      margin-left: 70px;
+      margin-right: 40px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      outline: none;
+      transition: border 0.3s ease;
+    }
+    input:focus {
+      border: 2px solid;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 50px;
+      padding: 50px;
+      margin-left:25px;
+      margin-right:25px;
+      margin-top: 5px;
+      margin-bottom: 30px; 
+    }
+    .food-card {
+      margin-left:25px;
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      height:500px;
+      width:90%
+
+    }
+    .food-card img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+    }
+    .food-card p {
+      padding: 8px 0;
+      margin: 0;
+      font-weight: bold;
+      font-size:30px;
+    }
+    .food-card:hover {
+      border: 2px solid grey;
+      transition: border 0.1s ease;
+      box-shadow: 0 40px 40px rgba(0, 2, 2, 0.1);
+    }
+
+  .highlight {
+    border: 2px solid orange;
+    box-shadow: 0 0 15px orange;
+    transition: all 0.3s ease;
+  }
+   
+  </style>
+</head>
+<body>
+  <header class="menu-header">
+    <h2>Restaurant Menu</h2>
+  </header>
+  <input type="text" placeholder="🔍 What’s on your mind?">
+
+  <section class="menu-grid">
+    <div class="food-card" onclick="goToDosa()">
+      <img src="https://bing.com/th?id=OSK.ad4f622d8502d9c5ec7c47ebfdcd2198" alt="Dosa" class = "Dosa">
+      <p> Dosa </p>
+    </div>
+    <div class="food-card" onclick="goToBiryani()">
+      <img src="https://www.thespruceeats.com/thmb/XDBL9gA6A6nYWUdsRZ3QwH084rk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/SES-chicken-biryani-recipe-7367850-hero-A-ed211926bb0e4ca1be510695c15ce111.jpg" alt="Biryani" class = "Biryani">
+      <p>Biryani</p>
+    </div>
+    <div class="food-card" onclick="goToNoodels()">
+      <img src="https://th.bing.com/th/id/OIP.bAi4BAmtk6OyVLcGA1fu0wHaHa?rs=1&pid=ImgDetMain" alt="Noodles" class = "Noodles"/>
+      <p>Noodles</p>
+    </div>
+    <div class="food-card" onclick="goToPasta()">
+      <img src="https://www.momontimeout.com/wp-content/uploads/2022/08/one-pot-pasta-chorizo-pasta-square.jpeg" alt="Pasta" class = "Pasta"/>
+      <p>Pasta</p>
+    </div>
+    <div class="food-card" onclick="goToPizza()">
+      <img src="https://img.freepik.com/free-photo/top-view-pepperoni-pizza-with-mushroom-sausages-bell-pepper-olive-corn-black-wooden_141793-2158.jpg?w=2000" alt="Pizza" class = "Pizza">
+      <p>Pizza</p>
+    </div>
+    <div class="food-card" onclick="goToFries()">
+      <img src="https://th.bing.com/th/id/R.7f547c929a3ad49936a96163debb92df?rik=TIL%2f9gigKofYyw&riu=http%3a%2f%2fmedia2.s-nbcnews.com%2fi%2fnewscms%2f2017_28%2f1228087%2ffrench-fries-and-ketchup-today-tease-170712_55b45596b3cb8ab19f3e4475dbb5cd9e.jpg&ehk=HOuUb07xGRkemP1PPb11ZlJf6UR8bYCE9ehmyyiMfK0%3d&risl=&pid=ImgRaw&r=0" alt="Fries" class = "Fries"/>
+      <p>Fries</p>
+    </div>
+  </section>
+
+
+  <script>
+    function goToDosa() {
+      window.location.href = "Dosa.html";
+    }
+    function goToBiryani() {
+      window.location.href = "Biryani.html";
+    }
+    function goToNoodels() {
+      window.location.href = "Noodles.html";
+    }
+    function goToPasta() {
+      window.location.href = "Pasta.html";
+    }
+    function goToPizza() {
+      window.location.href = "Pizza.html";
+    }
+    function goToFries() {
+      window.location.href = "Fries.html";
+    }
+  </script>
+
+   <script>
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".product-card");
+
+  function filterCards() {
+    const filter = searchInput.value.toLowerCase();
+    cards.forEach(function (card) {
+      const text = card.textContent.toLowerCase();
+      if (text.includes(filter) && filter !== "") {
+        card.style.display = "block";
+        card.classList.add("highlight");
+      } else if (filter === "") {
+        card.style.display = "block";
+        card.classList.remove("highlight");
+      } else {
+        card.style.display = "none";
+        card.classList.remove("highlight");
+      }
+    });
+  }
+
+  // Trigger on typing
+  searchInput.addEventListener("keyup", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault(); // prevent form submit if inside a form
+    }
+    filterCards();
+  });
+</script>
+
+
+
+</body>
+</html>
